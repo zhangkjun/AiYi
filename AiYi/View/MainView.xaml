@@ -56,15 +56,7 @@
                 WindowChrome.IsHitTestVisibleInChrome="True">
                 <view:BusinessAnalysisMainView />
             </TabItem>
-            <TabItem
-                control:Icon.Geometry="{StaticResource jcxxsz}"
-                control:Icon.Height="18"
-                control:Icon.Width="18"
-                Header="基础设置"
-                Style="{StaticResource MainTabItem}"
-                WindowChrome.IsHitTestVisibleInChrome="True">
-                <view:BasicsSetMainView />
-            </TabItem>
+           
             <TabItem
                 control:Icon.Geometry="{StaticResource hygl}"
                 control:Icon.Height="18"
@@ -85,12 +77,21 @@
             </TabItem>
             <TabItem
                 control:Icon.Geometry="{StaticResource ddgl}"
-                control:Icon.Height="20"
+                control:Icon.Height="18"
                 control:Icon.Width="18"
                 Header="订单管理"
                 Style="{StaticResource MainTabItem}"
                 WindowChrome.IsHitTestVisibleInChrome="True">
                 <view:OrderManageMainView />
+            </TabItem>
+            <TabItem
+                control:Icon.Geometry="{StaticResource jcxxsz}"
+                control:Icon.Height="18"
+                control:Icon.Width="18"
+                Header="基础设置"
+                Style="{StaticResource MainTabItem}"
+                WindowChrome.IsHitTestVisibleInChrome="True">
+                <view:BasicsSetMainView />
             </TabItem>
         </TabControl>
         <Border
@@ -100,12 +101,13 @@
             VerticalAlignment="Top"
             Background="Transparent">
             <TextBlock
-                Margin="40,0,0,0"
+                Margin="10,0,0,0"
                 VerticalAlignment="Center"
                 xml:space="preserve"
                 FontSize="14"
                 FontWeight="Bold"
-                Foreground="#FFFFD900">AiYi<LineBreak />    收银系统</TextBlock>
+                
+                Foreground="#FFFFD900" HorizontalAlignment="Left">爱益云<LineBreak />收银系统</TextBlock>
         </Border>
 
         <Border

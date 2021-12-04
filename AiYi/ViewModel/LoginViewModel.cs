@@ -5,6 +5,7 @@ using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Views;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Threading.Tasks;
 namespace AiYi.ViewModel
 {
     public class LoginViewModel : ViewModelBase
@@ -137,50 +138,64 @@ namespace AiYi.ViewModel
         /// </summary>
         public ICommand LoginCommand => new RelayCommand(() =>
         {
-            SimpleIoc.Default.GetInstance<INavigationService>().NavigateTo("main");
-            return;
+            //SimpleIoc.Default.GetInstance<INavigationService>().NavigateTo("main");
+            //return;
             if (CheckInput())
             {
                 IsLoad = true;
-                Task.Run(() =>
+                TaskScheduler uiContext = TaskScheduler.FromCurrentSynchronizationContext();
+                Task t = Task.Factory.StartNew( () =>
                 {
-                    //if (Core.Utils.IsConnected())
-                    //{
-                    //    var dt = Core.Web.login(UserName, UserPwd);
-                    //    if (dt.GetValue("status").ToString() == "1")
-                    //    {
-                    //        Model.Customer model = new Model.Customer
-                    //        {
-                    //            Id = Core.Utils.ToInt(dt.GetValue("userId").ToString()),
-                    //            MerchantId = Core.Utils.ToInt(dt.GetValue("busid").ToString()),
-                    //            Password = UserPwd,
-                    //            PrivateKey = dt.GetValue("privateKey").ToString(),
-                    //            Token = dt.GetValue("token").ToString(),
-                    //            UserName = dt.GetValue("account").ToString()
-                    //        };
+                  System.Threading.Thread.Sleep(1000);
+                    return UserName;
+                }).ContinueWith(m =>
+                {
+                    IsLoad = false;
+                    SimpleIoc.Default.GetInstance<INavigationService>().NavigateTo("main");
+                }, uiContext);
+                //
+                //Task.Run(() =>
+                //{
+                //    if (Core.Utils.IsConnected())
+                //    {
 
-                    //        //DispatcherHelper.CheckBeginInvokeOnUI();
+                //        IsLoad = false;
 
-                    //        if (Services.Customer.Update(model))
-                    //        {
-                    //            IsLoad = false;
-                    //             SimpleIoc.Default.GetInstance<INavigationService>().NavigateTo("main");
-                    //        }
-                    //        else
-                    //        {
-                    //            Msg = "本地数据库损坏";
-                    //        }
-                    //    }
-                    //    else
-                    //    {
-                    //        Msg = dt.GetValue("msg").ToString();
-                    //    }
-                    //}
-                    //else
-                    //{
-                         SimpleIoc.Default.GetInstance<INavigationService>().NavigateTo("main");
-                   // }
-                });
+                //        //var dt = Core.Web.login(UserName, UserPwd);
+                //        //if (dt.GetValue("status").ToString() == "1")
+                //        //{
+                //        //    Model.Customer model = new Model.Customer
+                //        //    {
+                //        //        Id = Core.Utils.ToInt(dt.GetValue("userId").ToString()),
+                //        //        MerchantId = Core.Utils.ToInt(dt.GetValue("busid").ToString()),
+                //        //        Password = UserPwd,
+                //        //        PrivateKey = dt.GetValue("privateKey").ToString(),
+                //        //        Token = dt.GetValue("token").ToString(),
+                //        //        UserName = dt.GetValue("account").ToString()
+                //        //    };
+
+                //        //    //DispatcherHelper.CheckBeginInvokeOnUI();
+
+                //        //    if (Services.Customer.Update(model))
+                //        //    {
+                //        //        IsLoad = false;
+                //        //        SimpleIoc.Default.GetInstance<INavigationService>().NavigateTo("main");
+                //        //    }
+                //        //    else
+                //        //    {
+                //        //        Msg = "本地数据库损坏";
+                //        //    }
+                //        //}
+                //        //else
+                //        //{
+                //        //    Msg = dt.GetValue("msg").ToString();
+                //        //}
+                //    }
+                //    else
+                //    {
+                //        SimpleIoc.Default.GetInstance<INavigationService>().NavigateTo("main");
+                //    }
+                //});
             }
         });
 

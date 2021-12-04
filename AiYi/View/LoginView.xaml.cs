@@ -22,22 +22,29 @@ namespace AiYi
         public LoginView()
         {
             InitializeComponent();
-            //   image.Source = new BitmapImage(new Uri("https://app.AiYicloud.com/ValidateCode?" + Core.Utils.Guid() + ""));
-            // image.Source =  new BitmapImage(new Uri(path, UriKind.RelativeOrAbsolute));// "";
-            //
+			//   image.Source = new BitmapImage(new Uri("https://app.AiYicloud.com/ValidateCode?" + Core.Utils.Guid() + ""));
+			// image.Source =  new BitmapImage(new Uri(path, UriKind.RelativeOrAbsolute));// "";
+			//
 
-            TBPwd.TextDecorations = new TextDecorationCollection(new TextDecoration[] {
-                new TextDecoration() {
-                     Location= TextDecorationLocation.Strikethrough,
-                      Pen= new Pen((Brush)new BrushConverter().ConvertFromString("#666666"), 10f) {
-                          DashCap =  PenLineCap.Round,
-                           StartLineCap= PenLineCap.Round,
-                            EndLineCap= PenLineCap.Round,
-                             DashStyle= new DashStyle(new double[] {0.0,1.2 }, 0.6f)
-                      }
-                }
-
-            });
-        }
+			Brush brush = (Brush)new BrushConverter().ConvertFromString("#666666");
+			this.TBPwd.TextDecorations = new TextDecorationCollection(new TextDecoration[]
+			{
+				new TextDecoration
+				{
+					Location = TextDecorationLocation.Strikethrough,
+					Pen = new Pen(brush, 10.0)
+					{
+						DashCap = PenLineCap.Round,
+						StartLineCap = PenLineCap.Round,
+						EndLineCap = PenLineCap.Round,
+						DashStyle = new DashStyle(new double[]
+						{
+							0.0,
+							1.2
+						}, 0.60000002384185791)
+					}
+				}
+			});
+		}
     }
 }

@@ -8,14 +8,7 @@ namespace AiYi.ViewModel
     {
         public MainViewModel()
         {
-            if (IsInDesignMode)
-            {
-                //设计器模式
-            }
-            else
-            {
-                Title = "AiYi";
-            }
+            Title = "AiYi";
         }
 
         private string title = "AiYi";

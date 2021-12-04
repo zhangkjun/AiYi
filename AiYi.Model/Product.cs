@@ -1,5 +1,4 @@
-﻿using GalaSoft.MvvmLight;
-
+﻿
 namespace AiYi.Model
 {
     /// <summary>

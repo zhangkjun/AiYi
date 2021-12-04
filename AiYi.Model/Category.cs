@@ -1,6 +1,4 @@
-﻿using GalaSoft.MvvmLight;
-
-namespace AiYi.Model
+﻿namespace AiYi.Model
 {
     /// <summary>
     /// 产品分类

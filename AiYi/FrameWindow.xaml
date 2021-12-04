@@ -8,7 +8,7 @@
     x:Name="Frame"
     Title="FrameWindow"
     AllowsTransparency="True"
-    BorderThickness="8"
+    BorderThickness="0"
     DataContext="{Binding Source={StaticResource Locator}}"
     Loaded="Window_Loaded"
   

@@ -1,4 +1,4 @@
-﻿using GalaSoft.MvvmLight;
+﻿global using GalaSoft.MvvmLight;
 
 namespace AiYi.Model
 {

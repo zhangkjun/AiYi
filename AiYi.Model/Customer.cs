@@ -1,6 +1,4 @@
-﻿using GalaSoft.MvvmLight;
-
-namespace AiYi.Model
+﻿namespace AiYi.Model
 {
     /// <summary>
     /// 登录用户基本信息
