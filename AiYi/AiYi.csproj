@@ -5,6 +5,102 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <UseWindowsForms>False</UseWindowsForms>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Font\ITCAvantGardeStd-Md.otf" />
+    <None Remove="Images\cp.png" />
+    <None Remove="Images\Desk\bt.png" />
+    <None Remove="Images\Desk\cxxg.png" />
+    <None Remove="Images\Desk\dc.png" />
+    <None Remove="Images\Desk\ft.png" />
+    <None Remove="Images\Desk\jz.png" />
+    <None Remove="Images\Desk\kx.png" />
+    <None Remove="Images\Desk\lt.png" />
+    <None Remove="Images\Desk\pz.png" />
+    <None Remove="Images\Desk\qxlh.png" />
+    <None Remove="Images\Desk\yddc.png" />
+    <None Remove="Images\Desk\zjlh.png" />
+    <None Remove="Images\Desk\zt.png" />
+    <None Remove="Images\kkd.png" />
+    <None Remove="Images\loginpic.jpg" />
+    <None Remove="Images\logo.png" />
+    <None Remove="Images\qrcode.jpg" />
+    <None Remove="Images\today.png" />
+    <None Remove="Images\tx.jpg" />
+    <None Remove="Images\yzm.jpg" />
+    <None Remove="Image\bg.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommonServiceLocator" Version="2.0.6" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="7.1.2" />
+    <PackageReference Include="MvvmLightLibsStd10" Version="5.4.1.1" />
+    <PackageReference Include="Panuon.UI.Silver" Version="1.1.3.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AiYi.Core\AiYi.Core.csproj" />
+    <ProjectReference Include="..\AiYi.Model\AiYi.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\cp.png" />
+    <Resource Include="Images\Desk\bt.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Desk\cxxg.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Desk\dc.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Desk\ft.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Desk\jz.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Desk\kx.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Desk\lt.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Desk\pz.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Desk\qxlh.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Desk\yddc.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Desk\zjlh.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Desk\zt.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\kkd.png" />
+    <Resource Include="Images\loginpic.jpg" />
+    <Resource Include="Images\logo.png" />
+    <Resource Include="Images\qrcode.jpg" />
+    <Resource Include="Images\today.png" />
+    <Resource Include="Images\tx.jpg" />
+    <Resource Include="Images\yzm.jpg" />
+    <Resource Include="Image\bg.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Font\ITCAvantGardeStd-Md.otf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
 
 </Project>

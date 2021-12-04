@@ -1,0 +1,65 @@
+﻿<UserControl
+    x:Class="AiYi.View.Logo"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="800"
+    d:DesignWidth="800"
+    Visibility="Collapsed"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <Storyboard x:Key="OnLoaded" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="360" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <Border Background="#88888888" CornerRadius="0">
+        <Grid>
+            <Border
+                Width="100"
+                Height="100"
+                Background="White"
+                CornerRadius="5">
+                <Border.Effect>
+                    <DropShadowEffect
+                        BlurRadius="10"
+                        Opacity="0.3"
+                        ShadowDepth="0"
+                        Color="#AEAEAE" />
+                </Border.Effect>
+            </Border>
+            <Border
+                Width="100"
+                Height="100"
+                Background="White"
+                CornerRadius="5" />
+            <Path
+                x:Name="path"
+                Width="40"
+                Height="40"
+                Data="M520.665099 64.564131a29.244341 29.244341 0 0 0-7.071394-0.894196c-16.210984 0-29.350001 13.140974-29.350001 29.35 0 15.829434 12.53832 28.696474 28.222961 29.293258v0.072396c0.37568 0 0.75136-0.013697 1.12704-0.013696 216.493432 0 389.629086 173.941801 389.629086 390.433275 0 216.495388-173.135654 388.826852-389.629086 388.826853s-389.631042-172.333421-389.631042-388.828809c0-0.27002 0.009783-0.536127 0.009783-0.80419h-0.009783c0-16.209027-13.140974-29.350001-29.350001-29.350001s-29.350001 13.139017-29.350001 29.350001c0 0.054787 0.007827 0.109573 0.007827 0.16436-0.001957 0.213277-0.007827 0.424597-0.007827 0.63983 0 247.608346 200.722698 448.331044 448.331044 448.331043 247.606389 0 448.329087-200.722698 448.329087-448.331043-0.001957-245.240779-196.916981-444.454887-441.257693-448.239081z"
+                RenderTransformOrigin="0.5,0.5"
+                Stretch="Fill">
+                <Path.Fill>
+                    <LinearGradientBrush MappingMode="RelativeToBoundingBox" StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Offset="0.146" Color="#FFB09EDE" />
+                        <GradientStop Offset="0.866" Color="#FF834C99" />
+                        <GradientStop Offset="0.548" Color="#FF9365D0" />
+                        <GradientStop Offset="1" Color="#FFC47EC6" />
+                        <GradientStop Color="#FF9064F6" />
+                    </LinearGradientBrush>
+                </Path.Fill>
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <SkewTransform />
+                        <RotateTransform />
+                        <TranslateTransform />
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+        </Grid>
+    </Border>
+</UserControl>

@@ -1,9 +1,34 @@
-﻿<Application x:Class="AiYi.App"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:AiYi"
-             StartupUri="MainWindow.xaml">
+﻿<Application
+    x:Class="AiYi.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d1p1:Ignorable="d"
+    StartupUri="FrameWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <vm:ViewModelLocator
+                xmlns:vm="clr-namespace:AiYi.ViewModel"
+                x:Key="Locator"
+                d:IsDataSource="True" />
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Style/Color.xaml" />
+                <ResourceDictionary Source="Style/Window.xaml" />
+                <ResourceDictionary Source="Style/ContextMenu.xaml" />
+                <ResourceDictionary Source="Style/Font.xaml" />
+                <ResourceDictionary Source="Style/Path.xaml" />
+                <ResourceDictionary Source="Style/Button.xaml" />
+                <ResourceDictionary Source="Style/TextBox.xaml" />
+                <ResourceDictionary Source="Style/TabControl.xaml" />
+                <ResourceDictionary Source="Style/CheckBox.xaml" />
+                <ResourceDictionary Source="Style/ListBox.xaml" />
+                <ResourceDictionary Source="Style/DataGrid.xaml" />
+                <ResourceDictionary Source="Style/RadioButton.xaml" />
+                <ResourceDictionary Source="Style/ComboBox.xaml" />
+                <ResourceDictionary Source="Style/Calendar.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

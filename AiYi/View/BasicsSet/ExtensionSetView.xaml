@@ -1,0 +1,52 @@
+﻿<UserControl
+    x:Class="AiYi.View.ExtensionSetView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:control="clr-namespace:AiYi.Control"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:AiYi.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="718"
+    d:DesignWidth="924"
+    DataContext="{Binding Source={StaticResource Locator}, Path=ExtensionSet}"
+    mc:Ignorable="d">
+    <StackPanel Margin="50,60,0,0" VerticalAlignment="Top">
+        <TextBox
+            Width="300"
+            HorizontalAlignment="Left"
+            control:WatermarkHelper.Watermark="本机IP"
+            Style="{StaticResource UnderLineTextTextBox}"
+            Text="{Binding LocalIP}" />
+        <RadioButton
+            Margin="10,20,0,10"
+            Content="设为总机"
+            Style="{StaticResource SpecialRadioButton}" />
+        <RadioButton
+            Content="设为分机"
+            IsChecked="{Binding IsExtension}"
+            Style="{StaticResource SpecialRadioButton}" />
+        <TextBox
+            Width="300"
+            HorizontalAlignment="Left"
+            control:WatermarkHelper.Watermark="总机IP"
+            Style="{StaticResource UnderLineTextTextBox}"
+            Text=""
+            Visibility="{Binding SwitchboardIPVisbie}" />
+        <StackPanel
+            Height="50"
+            Margin="0,10,0,0"
+            Orientation="Horizontal">
+            <TextBlock
+                Margin="0,5,0,0"
+                VerticalAlignment="Center"
+                FontSize="24"
+                Foreground="Red"
+                Text="*" />
+            <TextBlock
+                VerticalAlignment="Center"
+                FontSize="16"
+                Foreground="#666666"
+                Text="设为分机后，分机可点菜、备注、选择桌号、挂单，但不能进行结账。" />
+        </StackPanel>
+    </StackPanel>
+</UserControl>

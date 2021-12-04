@@ -1,0 +1,20 @@
+﻿<UserControl
+    x:Class="AiYi.View.DataMaintainMainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:control="clr-namespace:AiYi.Control"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:AiYi.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="718"
+    d:DesignWidth="1024"
+    mc:Ignorable="d">
+    <TabControl Style="{DynamicResource DataMaintainTabControl}">
+        <TabItem Header="菜品资料" Style="{DynamicResource DataMaintainTabItem}">
+            <local:DishDataView />
+        </TabItem>
+        <TabItem Header="菜品类别" Style="{DynamicResource DataMaintainTabItem}">
+            <local:DishCategoryView />
+        </TabItem>
+    </TabControl>
+</UserControl>

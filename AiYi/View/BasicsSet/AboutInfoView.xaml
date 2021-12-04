@@ -1,0 +1,63 @@
+﻿<UserControl
+    x:Class="AiYi.View.AboutInfoView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:control="clr-namespace:AiYi.Control"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:AiYi.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="718"
+    d:DesignWidth="924"
+    DataContext="{Binding Source={StaticResource Locator}, Path=AboutInfo}"
+    mc:Ignorable="d">
+    <StackPanel Margin="0,20,0,0" HorizontalAlignment="Center">
+        <Image Width="160" Source="/AiYi;component/Images/logo.png" />
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="20"
+            Foreground="#777777"
+            Text="客多多点餐软件" />
+        <TextBlock
+            Margin="0,10,0,0"
+            HorizontalAlignment="Center"
+            FontSize="14"
+            Foreground="#666666"
+            Text="版本号：20191029" />
+        <StackPanel Margin="0,80,0,0" Orientation="Horizontal">
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontSize="14"
+                Foreground="#666666"
+                Text="官方网站：" />
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontSize="14"
+                Foreground="#FF98D170"
+                Text="http://www.baidu.com" />
+        </StackPanel>
+        <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontSize="14"
+                Foreground="#666666"
+                Text="使用帮助：" />
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontSize="14"
+                Foreground="#FF98D170"
+                Text="http://www.baidu.com" />
+        </StackPanel>
+        <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontSize="14"
+                Foreground="#666666"
+                Text="咨询电话：" />
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontSize="14"
+                Foreground="#FF98D170"
+                Text="028-12345678" />
+        </StackPanel>
+    </StackPanel>
+</UserControl>

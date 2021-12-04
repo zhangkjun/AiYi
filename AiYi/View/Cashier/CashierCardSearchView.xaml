@@ -1,0 +1,135 @@
+﻿<UserControl
+    x:Class="AiYi.View.CashierCardSearchView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:control="clr-namespace:AiYi.Control"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="580"
+    d:DesignWidth="500"
+    DataContext="{Binding Source={StaticResource Locator}, Path=CashierCardSearch}"
+    mc:Ignorable="d">
+    <Grid Margin="30,20,30,10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="0" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <TextBox
+            Height="40"
+            control:WatermarkHelper.Watermark="输入卡号或持卡客户电话号码或姓名查询"
+            Foreground="#EE777777"
+            Style="{StaticResource SearchTextBox}"
+            Text="{Binding SearchName}" />
+        <Border
+            Grid.Row="1"
+            BorderBrush="#E0E0E0"
+            BorderThickness="0,0,0,1">
+            <TextBlock
+                Margin="0,0,0,5"
+                VerticalAlignment="Bottom"
+                FontSize="18"
+                Foreground="#8B8B8B"
+                Text="您可能要找" />
+        </Border>
+        <ScrollViewer
+            Grid.Row="2"
+            Margin="0,20,0,20"
+            Style="{StaticResource DMScrollViewer}">
+            <ItemsControl
+                Background="Transparent"
+                BorderThickness="0"
+                ItemsSource="{Binding StoreCardUserList}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button
+                            Margin="10"
+                            Background="Transparent"
+                            Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}, Path=DataContext.StoreCardDetailCommand}"
+                            CommandParameter="{Binding}"
+                            Style="{StaticResource ProductButton}">
+                            <Grid Background="Transparent">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="20" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="20" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30" />
+                                    <RowDefinition />
+                                    <RowDefinition Height="30" />
+                                </Grid.RowDefinitions>
+                                <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                    <TextBlock
+                                        FontSize="16"
+                                        Foreground="#FF777777"
+                                        Text="会员：" />
+                                    <TextBlock
+                                        FontSize="16"
+                                        Foreground="#FF777777"
+                                        Text="{Binding Name}" />
+                                </StackPanel>
+                                <StackPanel
+                                    Grid.Column="2"
+                                    VerticalAlignment="Center"
+                                    Orientation="Horizontal">
+                                    <TextBlock
+                                        FontSize="16"
+                                        Foreground="#FF777777"
+                                        Text="手机：" />
+                                    <TextBlock
+                                        FontSize="16"
+                                        Foreground="#FF777777"
+                                        Text="{Binding PhoneNum}" />
+                                </StackPanel>
+                                <StackPanel
+                                    Grid.Row="2"
+                                    Grid.ColumnSpan="3"
+                                    VerticalAlignment="Center"
+                                    Orientation="Horizontal">
+                                    <TextBlock
+                                        FontSize="16"
+                                        Foreground="#FF777777"
+                                        Text="卡号：" />
+                                    <TextBlock
+                                        FontSize="16"
+                                        Foreground="#FF777777"
+                                        Text="{Binding CardNO}" />
+                                </StackPanel>
+                                <Path
+                                    Grid.RowSpan="3"
+                                    Grid.Column="3"
+                                    Width="10"
+                                    Height="18"
+                                    Data="{StaticResource xy}"
+                                    Fill="#FFB6B6B6"
+                                    Stretch="Fill" />
+                            </Grid>
+                        </Button>
+
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+        <StackPanel
+            Grid.Row="4"
+            HorizontalAlignment="Center"
+            Orientation="Horizontal">
+            <Button
+                Width="140"
+                Height="42"
+                Background="#FFAEB0BD"
+                Command="SystemCommands.CloseWindowCommand"
+                Content="取消"
+                Style="{StaticResource CommonButton}" />
+        </StackPanel>
+    </Grid>
+</UserControl>

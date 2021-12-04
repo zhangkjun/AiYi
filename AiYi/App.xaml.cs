@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
-
+﻿global using GalaSoft.MvvmLight.Ioc;
+global using System.Windows.Media;
+global using System.Windows;
+global using AiYi.Model;
 namespace AiYi
 {
     /// <summary>
-    /// Interaction logic for App.xaml
+    /// App.xaml 的交互逻辑
     /// </summary>
     public partial class App : Application
     {

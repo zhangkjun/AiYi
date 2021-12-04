@@ -1,0 +1,252 @@
+﻿<UserControl
+    x:Class="AiYi.View.MemberMainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:View="clr-namespace:AiYi.View"
+    xmlns:control="clr-namespace:AiYi.Control"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="718"
+    d:DesignWidth="1024"
+    Loaded="UserControl_Loaded"
+    DataContext="{Binding Source={StaticResource Locator}, Path=MemberMain}"
+    mc:Ignorable="d">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition Width="120" />
+            </Grid.ColumnDefinitions>
+            <Grid Background="#FFF5F5F5">
+                <Border
+                    Margin="20"
+                    Background="#FFFDFDFD"
+                    BorderBrush="#FFE0E0E0"
+                    BorderThickness="1"
+                    CornerRadius="5">
+                    <StackPanel Grid.Row="1" Margin="50,50,50,0">
+                        <StackPanel Height="40" Orientation="Horizontal">
+                            <Path
+                                Width="24"
+                                Height="24"
+                                Data="{StaticResource member}"
+                                Fill="#FFFD8E1A"
+                                Stretch="Fill" />
+                            <TextBlock
+                                Margin="10,0,0,0"
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                Foreground="#666666"
+                                Text="新增会员：" />
+                        </StackPanel>
+                        <TextBox
+                            control:WatermarkHelper.Watermark="卡号（必填）"
+                            Foreground="#FFC09E8C"
+                            Style="{StaticResource UnderLineTextOtherTextBox}"
+                            Text="" />
+                        <TextBox
+                            control:WatermarkHelper.Watermark="姓名（必填）"
+                            Foreground="#FFC09E8C"
+                            Style="{StaticResource UnderLineTextOtherTextBox}"
+                            Text="" />
+                        <TextBox
+                            control:WatermarkHelper.Watermark="手机（必填）"
+                            Foreground="#FFC09E8C"
+                            Style="{StaticResource UnderLineTextOtherTextBox}"
+                            Text="" />
+                        <Grid>
+                            <TextBox
+                                Name="TBBirthday"
+                                control:WatermarkHelper.Watermark="生日"
+                                Foreground="#FFC09E8C"
+                                Style="{StaticResource UnderLineTextOtherTextBox}"
+                                Text="{Binding Birthday}" />
+                            <Button
+                                Name="BtnCalendar"
+                                Height="50"
+                                Margin="100,0,0,0"
+                                HorizontalAlignment="Stretch"
+                                Style="{StaticResource SpecialButton}" />
+                        </Grid>
+
+                        <TextBox
+                            control:WatermarkHelper.Watermark="地址"
+                            Foreground="#FFC09E8C"
+                            Style="{StaticResource UnderLineTextOtherTextBox}"
+                            Text="" />
+                        <TextBox
+                            control:WatermarkHelper.Watermark="备注"
+                            Foreground="#FFC09E8C"
+                            Style="{StaticResource UnderLineTextOtherTextBox}"
+                            Text="" />
+                        <Button
+                            Width="100"
+                            Height="38"
+                            Margin="0,40,0,0"
+                            Background="#FFFD8E1A"
+                            Command="{Binding MemberAddCommand}"
+                            Content="确认新增"
+                            Style="{StaticResource CommonButton}" />
+                    </StackPanel>
+                </Border>
+            </Grid>
+            <Grid Grid.Column="1" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="78" />
+                </Grid.RowDefinitions>
+                <Border Grid.RowSpan="3" Background="#FFF5F5F5" />
+                <Border
+                    Grid.RowSpan="3"
+                    Grid.Column="1"
+                    BorderBrush="#ECECEC"
+                    BorderThickness="1,0,0,0" />
+                <Border
+                    Background="#FFFBFBFB"
+                    BorderBrush="#FFEAEAEA"
+                    BorderThickness="1,0,0,1">
+                    <Grid Margin="20,0,20,10" VerticalAlignment="Bottom">
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="#35363A"
+                            Text="会员管理" />
+                        <TextBox
+                            Width="300"
+                            HorizontalAlignment="Right"
+                            control:WatermarkHelper.Watermark="请输入会员卡号\手机号查询"
+                            Style="{StaticResource SearchTextBox}"
+                            Text="{Binding SearchName}" />
+                    </Grid>
+                </Border>
+                <Grid
+                    Grid.Row="1"
+                    Grid.RowSpan="2"
+                    Margin="40,0,40,20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Border BorderBrush="#E0E0E0" BorderThickness="0,0,0,1">
+                        <TextBlock
+                            Margin="0,0,0,5"
+                            VerticalAlignment="Bottom"
+                            FontSize="18"
+                            Foreground="#8B8B8B"
+                            Text="您可能要找" />
+                    </Border>
+                    <ScrollViewer
+                        Grid.Row="1"
+                        Margin="15,15,0,0"
+                        Style="{StaticResource DMScrollViewer}">
+                        <ItemsControl
+                            Background="Transparent"
+                            BorderThickness="0"
+                            ItemsSource="{Binding StoreCardUserList}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Button
+                                        Margin="10"
+                                        Background="Transparent"
+                                        Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}, Path=DataContext.StoreCardDetailCommand}"
+                                        CommandParameter="{Binding}"
+                                        Style="{StaticResource ProductButton}">
+                                        <Grid Background="Transparent">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition />
+                                                <ColumnDefinition Width="20" />
+                                                <ColumnDefinition />
+                                                <ColumnDefinition Width="20" />
+                                                <ColumnDefinition Width="20" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="30" />
+                                                <RowDefinition />
+                                                <RowDefinition Height="30" />
+                                            </Grid.RowDefinitions>
+                                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                                <TextBlock
+                                                    FontSize="14"
+                                                    Foreground="#FF777777"
+                                                    Text="会员：" />
+                                                <TextBlock
+                                                    FontSize="14"
+                                                    Foreground="#FF777777"
+                                                    Text="{Binding Name}" />
+                                            </StackPanel>
+                                            <StackPanel
+                                                Grid.Column="2"
+                                                VerticalAlignment="Center"
+                                                Orientation="Horizontal">
+                                                <TextBlock
+                                                    FontSize="14"
+                                                    Foreground="#FF777777"
+                                                    Text="手机：" />
+                                                <TextBlock
+                                                    FontSize="14"
+                                                    Foreground="#FF777777"
+                                                    Text="{Binding PhoneNum}" />
+                                            </StackPanel>
+                                            <StackPanel
+                                                Grid.Row="2"
+                                                Grid.ColumnSpan="3"
+                                                VerticalAlignment="Center"
+                                                Orientation="Horizontal">
+                                                <TextBlock
+                                                    FontSize="14"
+                                                    Foreground="#FF777777"
+                                                    Text="卡号：" />
+                                                <TextBlock
+                                                    FontSize="14"
+                                                    Foreground="#FF777777"
+                                                    Text="{Binding CardNO}" />
+                                            </StackPanel>
+                                            <Path
+                                                Grid.RowSpan="3"
+                                                Grid.Column="3"
+                                                Width="8"
+                                                Height="14"
+                                                Data="{StaticResource xy}"
+                                                Fill="#FFB6B6B6"
+                                                Stretch="Fill" />
+                                        </Grid>
+                                    </Button>
+
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <Popup
+            x:Name="popupCalendar"
+            Width="360"
+            Height="306"
+            HorizontalOffset="-10"
+            IsOpen="False"
+            Placement="Bottom"
+            PlacementTarget="{Binding ElementName=BtnCalendar}"
+            PopupAnimation="Fade"
+            StaysOpen="False"
+            VerticalOffset="0">
+            <Calendar
+                Name="BirthdayCalendar"
+                CalendarButtonStyle="{DynamicResource CalendarButtonStyle1}"
+                CalendarDayButtonStyle="{DynamicResource CalendarDayButtonStyle1}"
+                CalendarItemStyle="{DynamicResource CalendarItemStyle1}"
+                SelectedDate="{Binding SelectedBirthday}"
+                Style="{DynamicResource CalendarStyle1}" />
+        </Popup>
+    </Grid>
+
+
+</UserControl>

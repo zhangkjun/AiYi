@@ -1,0 +1,299 @@
+﻿<UserControl
+    x:Class="AiYi.View.ProductListView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:control="clr-namespace:AiYi.Control"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:AiYi.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodel="clr-namespace:AiYi.ViewModel"
+    d:DesignHeight="718"
+    d:DesignWidth="512"
+    mc:Ignorable="d">
+    <UserControl.DataContext>
+        <viewmodel:ProductListViewModel />
+    </UserControl.DataContext>
+    <Grid Background="#FFF5F5F5">
+        <Border
+            Margin="20"
+            Background="#FFFDFDFD"
+            BorderBrush="#FFE0E0E0"
+            BorderThickness="1"
+            CornerRadius="5">
+            <Grid x:Name="Grid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="45" />
+                    <RowDefinition />
+                    <RowDefinition Height="58" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock
+                            Margin="10,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="14"
+                            Foreground="#FFC09E8C"
+                            Text="No." />
+                        <TextBlock
+                            Margin="5,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="14"
+                            Foreground="#FFC09E8C"
+                            Text="1506150001" />
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="1">
+                    <TextBlock
+                        Margin="0,0,10,0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        FontSize="14"
+                        Foreground="#FFB6B6B6"
+                        Text="2016/12/25 23:05:00" />
+                </Grid>
+                <Grid Grid.Row="1" Grid.ColumnSpan="2">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock
+                            Margin="15,0,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            FontSize="18"
+                            Foreground="#FF37373B"
+                            Opacity="0.8"
+                            Text="客单" />
+                        <TextBlock
+                            Margin="15,0,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            FontSize="14"
+                            Foreground="#FF37373B"
+                            Opacity="0.8"
+                            Text="桌号-" />
+                        <TextBlock
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            FontSize="14"
+                            Foreground="#FF37373B"
+                            Opacity="0.8"
+                            Text="015" />
+                    </StackPanel>
+                    <Line
+                        Stroke="#FFD4D4D4"
+                        StrokeDashArray="2,1"
+                        StrokeThickness="2"
+                        X1="0"
+                        X2="{Binding ActualWidth, ElementName=Grid}"
+                        Y1="45"
+                        Y2="45" />
+                </Grid>
+                <Grid Grid.Row="2" Grid.ColumnSpan="2">
+                    <Grid
+                        x:Name="NOGoods"
+                        Height="480"
+                        Background="#FFFDFDFD">
+                        <StackPanel VerticalAlignment="Center">
+                            <Image Height="75" Source="/AiYi;component/Images/kkd.png" />
+                            <TextBlock
+                                Margin="0,10,0,0"
+                                HorizontalAlignment="Center"
+                                FontSize="22"
+                                Text="空客单" />
+                            <TextBlock
+                                Margin="0,33,0,0"
+                                HorizontalAlignment="Center"
+                                FontSize="16"
+                                Foreground="#FFA1A1A1"
+                                Text="从列表中点选一个商品" />
+                            <TextBlock
+                                Margin="0,12,0,0"
+                                HorizontalAlignment="Center"
+                                FontSize="16"
+                                Foreground="#FFA1A1A1"
+                                Text="或直接输入商品拼音码即可加入客单" />
+                        </StackPanel>
+                    </Grid>
+                    <DataGrid
+                        x:Name="DataGridProductList"
+                        Margin="20,0,20,0"
+                        AutoGenerateColumns="False"
+                        GridLinesVisibility="Horizontal"
+                        HorizontalGridLinesBrush="#F0F0F0"
+                        HorizontalScrollBarVisibility="Disabled"
+                        IsReadOnly="True"
+                        ItemsSource="{Binding OrderProductList}"
+                        VerticalScrollBarVisibility="Disabled"
+                        Visibility="{Binding ProductListVisbie}">
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="Foreground" Value="#FF777777" />
+                                <Setter Property="Background" Value="#FFFDFDFD" />
+                                <Setter Property="FontSize" Value="14" />
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="#FFF5F5F5" />
+                                        <Setter Property="Foreground" Value="#FF777777" />
+                                        <Setter Property="BorderThickness" Value="0" />
+                                        <Setter Property="Cursor" Value="Hand" />
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Cursor" Value="Hand" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.CellStyle>
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Width="40" Header="项">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button
+                                            Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}, Path=DataContext.SelectedCommand}"
+                                            CommandParameter="{Binding}"
+                                            Focusable="False"
+                                            Style="{StaticResource ProductButton}">
+                                            <Border Background="Transparent">
+                                                <TextBlock
+                                                    Margin="10,0,0,0"
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    Foreground="#FF777777"
+                                                    Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGridRow}}, Path=Header}" />
+                                            </Border>
+                                        </Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="1.2*" Header="品名">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button
+                                            Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}, Path=DataContext.SelectedCommand}"
+                                            CommandParameter="{Binding}"
+                                            Style="{StaticResource ProductButton}">
+                                            <Border Background="Transparent">
+                                                <StackPanel
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    SnapsToDevicePixels="True">
+                                                    <TextBlock
+                                                        HorizontalAlignment="Center"
+                                                        Foreground="#FF777777"
+                                                        Text="{Binding Name}" />
+                                                    <StackPanel
+                                                        Name="remark"
+                                                        HorizontalAlignment="Center"
+                                                        Orientation="Horizontal">
+                                                        <TextBlock Foreground="#FFC09E8C" Text="(" />
+                                                        <TextBlock Foreground="#FFC09E8C" Text="{Binding Remark}" />
+                                                        <TextBlock Foreground="#FFC09E8C" Text=")" />
+                                                    </StackPanel>
+                                                </StackPanel>
+                                            </Border>
+                                        </Button>
+                                        <DataTemplate.Triggers>
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <!--<Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true" />-->
+                                                    <Condition Binding="{Binding Path=Remark}" Value="" />
+                                                </MultiDataTrigger.Conditions>
+                                                <Setter TargetName="remark" Property="Visibility" Value="Collapsed" />
+                                            </MultiDataTrigger>
+                                        </DataTemplate.Triggers>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="100" Header="数量">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <control:NumberPicker Number="{Binding Path=Amount, Mode=TwoWay}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="0.6*" Header="金额">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button
+                                            Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}, Path=DataContext.SelectedCommand}"
+                                            CommandParameter="{Binding}"
+                                            Style="{StaticResource ProductButton}">
+                                            <Border Background="Transparent">
+                                                <StackPanel
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    Orientation="Horizontal">
+                                                    <TextBlock Foreground="#FFFD8E1A" Text="￥" />
+                                                    <TextBlock Foreground="#FFFD8E1A" Text="{Binding Price}" />
+                                                </StackPanel>
+                                            </Border>
+                                        </Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+                <Grid Grid.Row="3" Grid.ColumnSpan="2">
+                    <Border BorderBrush="#FFE0E0E0" BorderThickness="0,1,0,0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Row="0" Grid.Column="0">
+                                <StackPanel
+                                    Margin="23,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Orientation="Horizontal">
+                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        FontSize="14"
+                                        Foreground="Black"
+                                        Text="合计" />
+                                    <TextBlock
+                                        Margin="5,0,5,0"
+                                        VerticalAlignment="Center"
+                                        FontSize="14"
+                                        Foreground="#FFFD8E1A"
+                                        Text="{Binding TotalAmount}" />
+                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        FontSize="14"
+                                        Foreground="Black"
+                                        Text="项" />
+
+                                    <Button
+                                        Width="80"
+                                        Height="34"
+                                        Margin="20,0,0,0"
+                                        Background="#FFFD8E1A"
+                                        Content="清空"
+                                        Style="{StaticResource CommonButton}" />
+                                </StackPanel>
+                            </Grid>
+                            <Grid Grid.Row="0" Grid.Column="1">
+                                <StackPanel
+                                    Margin="0,0,40,0"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                    Orientation="Horizontal">
+                                    <TextBlock
+                                        FontSize="18"
+                                        Foreground="#FFFD8E1A"
+                                        Text="￥" />
+                                    <TextBlock
+                                        FontSize="18"
+                                        Foreground="#FFFD8E1A"
+                                        Text="{Binding TotalPrice}" />
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AiYi
+namespace AiYi.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// NumKeyboardView.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class NumKeyboardView : UserControl
     {
-        public MainWindow()
+        public NumKeyboardView()
         {
             InitializeComponent();
         }

@@ -1,0 +1,142 @@
+﻿<Page
+    x:Class="AiYi.MainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:control="clr-namespace:AiYi.Control"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:AiYi"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:view="clr-namespace:AiYi.View"
+    DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
+    mc:Ignorable="d">
+    <Grid>
+        <TabControl Style="{StaticResource MainTabControl}">
+            <TabItem
+                control:Icon.Geometry="{StaticResource dcsy}"
+                control:Icon.Height="18"
+                control:Icon.Width="18"
+                Header="点菜收银"
+                Style="{StaticResource MainTabItem}"
+                WindowChrome.IsHitTestVisibleInChrome="True">
+                <view:DeskMainView />
+            </TabItem>
+            <TabItem
+                control:Icon.Geometry="{StaticResource cxsy}"
+                control:Icon.Height="20"
+                control:Icon.Width="18"
+                Header="撤销收银"
+                Style="{StaticResource MainTabItem}"
+                WindowChrome.IsHitTestVisibleInChrome="True">
+                <view:RevokeCashierMainView />
+            </TabItem>
+            <TabItem
+                control:Icon.Geometry="{StaticResource jjb}"
+                control:Icon.Height="18"
+                control:Icon.Width="18"
+                Header="交接班"
+                Style="{StaticResource MainTabItem}"
+                WindowChrome.IsHitTestVisibleInChrome="True">
+                <view:ChangeShiftsMainView />
+            </TabItem>
+            <TabItem
+                control:Icon.Geometry="{StaticResource cpzlwh}"
+                control:Icon.Height="18"
+                control:Icon.Width="18"
+                Header="菜品维护"
+                Style="{StaticResource MainTabItem}"
+                WindowChrome.IsHitTestVisibleInChrome="True">
+                <view:DataMaintainMainView />
+            </TabItem>
+            <TabItem
+                control:Icon.Geometry="{StaticResource yyqmfx}"
+                control:Icon.Height="15"
+                control:Icon.Width="20"
+                Header="营业分析"
+                Style="{StaticResource MainTabItem}"
+                WindowChrome.IsHitTestVisibleInChrome="True">
+                <view:BusinessAnalysisMainView />
+            </TabItem>
+            <TabItem
+                control:Icon.Geometry="{StaticResource jcxxsz}"
+                control:Icon.Height="18"
+                control:Icon.Width="18"
+                Header="基础设置"
+                Style="{StaticResource MainTabItem}"
+                WindowChrome.IsHitTestVisibleInChrome="True">
+                <view:BasicsSetMainView />
+            </TabItem>
+            <TabItem
+                control:Icon.Geometry="{StaticResource hygl}"
+                control:Icon.Height="18"
+                control:Icon.Width="18"
+                Header="会员管理"
+                Style="{StaticResource MainTabItem}"
+                WindowChrome.IsHitTestVisibleInChrome="True">
+                <view:MemberMainView />
+            </TabItem>
+            <TabItem
+                control:Icon.Geometry="{StaticResource wmdd}"
+                control:Icon.Height="16"
+                control:Icon.Width="18"
+                Header="外卖"
+                Style="{StaticResource MainTabItem}"
+                WindowChrome.IsHitTestVisibleInChrome="True">
+                <view:TakeOutMainView />
+            </TabItem>
+            <TabItem
+                control:Icon.Geometry="{StaticResource ddgl}"
+                control:Icon.Height="20"
+                control:Icon.Width="18"
+                Header="订单管理"
+                Style="{StaticResource MainTabItem}"
+                WindowChrome.IsHitTestVisibleInChrome="True">
+                <view:OrderManageMainView />
+            </TabItem>
+        </TabControl>
+        <Border
+            Width="200"
+            Height="50"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="Transparent">
+            <TextBlock
+                Margin="40,0,0,0"
+                VerticalAlignment="Center"
+                xml:space="preserve"
+                FontSize="14"
+                FontWeight="Bold"
+                Foreground="#FFFFD900">AiYi<LineBreak />    收银系统</TextBlock>
+        </Border>
+
+        <Border
+            Height="50"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top">
+            <Border
+                Height="32"
+                Margin="0,0,20,0"
+                Padding="20,0,20,0"
+                Background="#FF46474C"
+                CornerRadius="5">
+                <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                    <TextBlock
+                        FontSize="14"
+                        Foreground="#FFFFD900"
+                        Opacity="0.6"
+                        Text="天府新区店" />
+                    <TextBlock
+                        Margin="10,0,10,0"
+                        FontSize="14"
+                        Foreground="#FFFFD900"
+                        Opacity="0.6"
+                        Text="|" />
+                    <TextBlock
+                        FontSize="14"
+                        Foreground="#FFFFD900"
+                        Opacity="0.6"
+                        Text="张三" />
+                </StackPanel>
+            </Border>
+        </Border>
+    </Grid>
+</Page>

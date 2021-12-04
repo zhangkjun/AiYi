@@ -1,0 +1,72 @@
+﻿<control:BaseWindow
+    x:Class="AiYi.View.DishCategoryEditView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:control="clr-namespace:AiYi.Control"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="DishCategoryEdit"
+    Title="菜品类别新增或编辑或删除"
+    d:DesignHeight="768"
+    d:DesignWidth="1024"
+    DataContext="{Binding Source={StaticResource Locator}, Path=DishCategoryEdit}"
+    ShowInTaskbar="False"
+    Style="{StaticResource PopupWindow}"
+    mc:Ignorable="d">
+    <Grid Background="#AAD8D8D8">
+        <Border
+            Width="420"
+            Height="240"
+            Background="White"
+            CornerRadius="5">
+            <Border.Effect>
+                <DropShadowEffect
+                    BlurRadius="10"
+                    Opacity="0.1"
+                    ShadowDepth="0" />
+            </Border.Effect>
+        </Border>
+        <Border
+            Width="420"
+            Height="240"
+            Background="White"
+            CornerRadius="5">
+            <Grid Margin="30,30,30,0" HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBox
+                    Grid.Row="0"
+                    control:WatermarkHelper.Watermark="类别名称："
+                    Style="{StaticResource UnderLineTextTextBox}"
+                    Text="{Binding GetCategory.Name}" />
+                <TextBox
+                    Grid.Row="1"
+                    control:WatermarkHelper.Watermark="分类编码："
+                    Style="{StaticResource UnderLineTextTextBox}"
+                    Text="{Binding GetCategory.Code}" />
+                <StackPanel
+                    Grid.Row="2"
+                    HorizontalAlignment="Center"
+                    Orientation="Horizontal">
+                    <Button
+                        Width="140"
+                        Height="42"
+                        Background="#FFAEB0BD"
+                        Command="SystemCommands.CloseWindowCommand"
+                        Content="取消"
+                        Style="{StaticResource CommonButton}" />
+                    <Button
+                        Width="140"
+                        Height="42"
+                        Background="#FFFD8E1A"
+                        Content="保存"
+                        Style="{StaticResource CommonButton}" />
+                </StackPanel>
+            </Grid>
+
+        </Border>
+    </Grid>
+</control:BaseWindow>

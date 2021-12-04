@@ -1,0 +1,157 @@
+﻿<control:BaseWindow
+    x:Class="AiYi.View.MemberCostDetailView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:control="clr-namespace:AiYi.Control"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="MemberCostDetail"
+    Title="会员消费明细界面"
+    d:DesignHeight="768"
+    d:DesignWidth="1024"
+    DataContext="{Binding Source={StaticResource Locator}, Path=MemberCostDetail}"
+    ShowInTaskbar="False"
+    Style="{StaticResource PopupWindow}"
+    mc:Ignorable="d">
+    <Grid Background="#AAD8D8D8">
+        <Border
+            Width="500"
+            Height="580"
+            Background="White"
+            CornerRadius="5">
+            <Border.Effect>
+                <DropShadowEffect
+                    BlurRadius="10"
+                    Opacity="0.1"
+                    ShadowDepth="0" />
+            </Border.Effect>
+        </Border>
+        <Border
+            Width="500"
+            Height="580"
+            Background="White"
+            CornerRadius="5">
+            <Grid>
+                <Grid Margin="30,20,30,20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="54" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                Foreground="#FF777777"
+                                Text="会员卡号：" />
+                            <TextBlock
+                                Grid.Column="1"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                Foreground="#FFC09E8C"
+                                Text="{Binding CardNO}" />
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" Orientation="Horizontal">
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                Foreground="#FF777777"
+                                Text="客户姓名：" />
+                            <TextBlock
+                                Grid.Column="1"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                Foreground="#FFC09E8C"
+                                Text="{Binding Name}" />
+                        </StackPanel>
+                    </Grid>
+                    <Border
+                        Grid.Row="1"
+                        Height="34"
+                        Background="Transparent"
+                        BorderBrush="#FFEAEAEA"
+                        BorderThickness="0,0,0,1">
+                        <TextBlock
+                            FontSize="16"
+                            Foreground="#35363A"
+                            Text="消费详情" />
+                    </Border>
+                    <DataGrid
+                        Grid.Row="2"
+                        AutoGenerateColumns="False"
+                        GridLinesVisibility="Horizontal"
+                        HorizontalGridLinesBrush="#F0F0F0"
+                        HorizontalScrollBarVisibility="Disabled"
+                        IsReadOnly="True"
+                        ItemsSource="{Binding MemberCostDetailList}"
+                        VerticalScrollBarVisibility="Disabled">
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="Foreground" Value="#FF777777" />
+                                <Setter Property="Background" Value="#FFFDFDFD" />
+                                <Setter Property="FontSize" Value="14" />
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="BorderThickness" Value="0" />
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Cursor" Value="Hand" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.CellStyle>
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Width="120" Header="消费时间">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Foreground="#FF777777"
+                                            Text="{Binding CostDate}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="*" Header="发生金额(元)">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Foreground="#FFC09E8C"
+                                            Text="{Binding CostMoney}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="*" Header="余额(元)">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Foreground="#FFC09E8C"
+                                            Text="{Binding BalanceMoney}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+                <Button
+                    Margin="0,-10,-10,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Command="SystemCommands.CloseWindowCommand"
+                    Style="{StaticResource CloseButton}" />
+            </Grid>
+
+        </Border>
+    </Grid>
+</control:BaseWindow>

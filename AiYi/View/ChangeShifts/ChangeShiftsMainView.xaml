@@ -1,0 +1,140 @@
+﻿<UserControl
+    x:Class="AiYi.View.ChangeShiftsMainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:control="clr-namespace:AiYi.Control"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:AiYi.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="718"
+    d:DesignWidth="1024"
+    DataContext="{Binding Source={StaticResource Locator}, Path=ChangeShiftsMain}"
+    mc:Ignorable="d">
+    <Grid Background="#AAD8D8D8">
+        <Border
+            Width="400"
+            Height="640"
+            Background="White"
+            CornerRadius="5">
+            <Border.Effect>
+                <DropShadowEffect
+                    BlurRadius="10"
+                    Opacity="0.1"
+                    ShadowDepth="0" />
+            </Border.Effect>
+        </Border>
+        <Border
+            Width="400"
+            Height="640"
+            Background="White"
+            CornerRadius="5">
+            <StackPanel Margin="30,20,30,20">
+                <Ellipse Width="100" Height="100">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="/AiYi;component/Images/tx.jpg" Stretch="UniformToFill" />
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Border Height="40">
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        FontSize="22"
+                        Text="银杏酒家" />
+                </Border>
+                <TextBox
+                    control:WatermarkHelper.Watermark="交班时间："
+                    IsReadOnly="True"
+                    Style="{StaticResource UnderLineTextTextBox}"
+                    Text="{Binding JBSJ}" />
+
+                <TextBox
+                    control:WatermarkHelper.Watermark="操作员："
+                    IsReadOnly="True"
+                    Style="{StaticResource UnderLineTextTextBox}"
+                    Text="{Binding CZY}" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Border Grid.RowSpan="2">
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            FontSize="16"
+                            Foreground="#666666"
+                            Text="收款金额：" />
+                    </Border>
+                    <TextBox
+                        Grid.Column="1"
+                        control:WatermarkHelper.Watermark="营业收入￥"
+                        Foreground="#FFC09E8C"
+                        IsReadOnly="True"
+                        Style="{StaticResource UnderLineTextTextBox}"
+                        Text="{Binding YYSR}" />
+                    <TextBox
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        control:WatermarkHelper.Watermark="卡片收入￥"
+                        Foreground="#FFC09E8C"
+                        IsReadOnly="True"
+                        Style="{StaticResource UnderLineTextTextBox}"
+                        Text="{Binding KPSR}" />
+                </Grid>
+
+                <Grid Margin="0,30,0,30">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Border Grid.RowSpan="3" Height="40">
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            FontSize="16"
+                            Foreground="#666666"
+                            Text="收款方式：" />
+                    </Border>
+
+                    <TextBox
+                        Grid.Column="1"
+                        control:WatermarkHelper.Watermark="现金￥"
+                        Foreground="#FFC09E8C"
+                        IsReadOnly="True"
+                        Style="{StaticResource UnderLineTextTextBox}"
+                        Text="{Binding XJSK}" />
+                    <TextBox
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        control:WatermarkHelper.Watermark="储值卡￥"
+                        Foreground="#FFC09E8C"
+                        IsReadOnly="True"
+                        Style="{StaticResource UnderLineTextTextBox}"
+                        Text="{Binding CZKSK}" />
+                    <TextBox
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        control:WatermarkHelper.Watermark="银联卡￥"
+                        Foreground="#FFC09E8C"
+                        IsReadOnly="True"
+                        Style="{StaticResource UnderLineTextTextBox}"
+                        Text="{Binding YLKSK}" />
+                </Grid>
+                <Button
+                    Width="140"
+                    Height="42"
+                    Background="#FFFD8E1A"
+                    Command="{Binding QuitCommand}"
+                    Content="确定交班并退出"
+                    Style="{StaticResource CommonButton}" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

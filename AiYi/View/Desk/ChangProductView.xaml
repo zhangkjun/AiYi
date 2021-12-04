@@ -1,0 +1,162 @@
+﻿<UserControl
+    x:Class="AiYi.View.ChangProductView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:view="clr-namespace:AiYi.View"
+    xmlns:viewmodel="clr-namespace:AiYi.ViewModel"
+    d:DesignHeight="718"
+    d:DesignWidth="1024"
+    mc:Ignorable="d">
+    <UserControl.DataContext>
+        <viewmodel:ChangProductViewModel />
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <view:ProductListView />
+        <Border
+            Grid.Column="1"
+            BorderBrush="#ECECEC"
+            BorderThickness="1">
+            <Grid Grid.Column="1" Background="#FFF5F5F5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Border
+                        Background="#FFFBFBFB"
+                        BorderBrush="#FFEAEAEA"
+                        BorderThickness="0,0,0,1">
+                        <StackPanel
+                            Margin="20,0,0,10"
+                            VerticalAlignment="Bottom"
+                            Orientation="Horizontal">
+                            <TextBlock
+                                Margin="10,4,0,0"
+                                FontSize="18"
+                                Foreground="#35363A"
+                                Text="查询修改" />
+                        </StackPanel>
+
+                    </Border>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="78" />
+                    </Grid.RowDefinitions>
+                    <ScrollViewer
+                        Margin="15"
+                        Style="{StaticResource DMScrollViewer}"
+                        VerticalScrollBarVisibility="Hidden">
+                        <WrapPanel>
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="多加葱" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="少辣椒" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="多放醋" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="多加葱" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="少辣椒" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="多放醋" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="多加葱" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="少辣椒" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="多放醋" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="多加葱" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="少辣椒" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="多放醋" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="多加葱" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="少辣椒" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="多放醋" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="多加葱" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="少辣椒" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="多放醋" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="多加葱" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="少辣椒" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="多放醋" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="多加葱" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="少辣椒" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="多放醋" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="多加葱" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="少辣椒" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="多放醋" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="多加葱" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="少辣椒" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="多放醋" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="多加葱" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="少辣椒" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="多放醋" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="多加葱" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="少辣椒" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="不加香菜" Style="{StaticResource RemarkCheckBox}" />
+                            <CheckBox Content="多放醋" Style="{StaticResource RemarkCheckBox}" />
+                        </WrapPanel>
+                    </ScrollViewer>
+                    <Border
+                        Grid.Row="1"
+                        BorderBrush="#FFE0E0E0"
+                        BorderThickness="0,1,0,0">
+                        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                            <Button
+                                Width="100"
+                                Height="38"
+                                Background="#FFAEB0BD"
+                                Command="{Binding BackCommand}"
+                                Content="取消"
+                                Style="{StaticResource CommonButton}" />
+                            <Button
+                                Width="100"
+                                Height="38"
+                                Background="#FFFD8E1A"
+                                Content="加菜"
+                                Style="{StaticResource CommonButton}" />
+                            <Button
+                                Width="100"
+                                Height="38"
+                                Background="#FFFD8E1A"
+                                Content="提交"
+                                Style="{StaticResource CommonButton}" />
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>
